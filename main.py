@@ -12,18 +12,19 @@ from sqlalchemy import *
 import sqlite3
 import pymysql
 finlab.login('75b0ztI1TfihNQAeO0UyBJVYckRmF9Rr10E3LhE4JlIDY1uh8NLgUJBCXafSgsJf#free')
-# 取得股價淨值比
-# rev = data.get("monthly_revenue:當月營收")
-# print(rev.loc['2018-M01':, ['2317', '2330', '3008']])
-# rrsi=data.indicator('RSI', timeperiod=14)
-# print(rrsi)
+
+
+
 
 
 
 
 def fetch_fin_data():
-
-
+    # 取得股價淨值比
+    rev = data.get("monthly_revenue:當月營收")
+    #rev=rev.loc['2018-M01':, ['2317', '2330', '3008']]
+    # rrsi=data.indicator('RSI', timeperiod=14)
+    # print(rrsi)
 
     #PER = data.get('price_earning_ratio:本益比')
     #Yield = data.get('price_earning_ratio:殖利率(%)')
@@ -34,8 +35,8 @@ def fetch_fin_data():
     #
     # EPS=data.get('fundamental_features:每股稅後淨利')
     # print("EPS", EPS.loc[:, ["2330"]])
-    rrsi=data.indicator('RSI', timeperiod=14)
-    print(rrsi)
+    # rrsi=data.indicator('RSI', timeperiod=14)
+    # print(rrsi)
 
     # # 初始化資料庫連線，使用pymysql模組
     # username = 'neo4jj'     # 資料庫帳號
@@ -49,19 +50,19 @@ def fetch_fin_data():
     # )
     engine = create_engine('sqlite:///fin_db', echo=True)
     # 將新建的DataFrame儲存為MySQL中的資料表，不儲存index列
-    #rrsi.to_sql('RSI', engine, if_exists='replace',index= False)
+    rev.to_sql('Revenue', engine, if_exists='replace')
     print("Write to MySQL successfully!")
 
-    db = MetaData()  # 取得類似於 Cursor 的物件
-
-    demo_table = Table(  # 代表資料表數據的物件
-        'demo_table', db,
-        Column('id', Integer, primary_key=True),
-        Column('name', String),
-        Column('data', String),
-    )
-
-    db.create_all(engine)  # 創建資料表
+    # db = MetaData()  # 取得類似於 Cursor 的物件
+    #
+    # demo_table = Table(  # 代表資料表數據的物件
+    #     'demo_table', db,
+    #     Column('id', Integer, primary_key=True),
+    #     Column('name', String),
+    #     Column('data', String),
+    # )
+    #
+    # db.create_all(engine)  # 創建資料表
 
     # conn = sqlite3.connect('fin_db')  # 建立連線
     # cursor = conn.cursor()  # 取得游標物件
