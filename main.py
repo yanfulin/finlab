@@ -20,6 +20,20 @@ finlab.login('75b0ztI1TfihNQAeO0UyBJVYckRmF9Rr10E3LhE4JlIDY1uh8NLgUJBCXafSgsJf#f
 
 
 def fetch_fin_data():
+    # get_monthly_revenue()
+    # store_monthly_revenue_to_db()
+    # revenue_forecast()
+    # EPS_forecast_based_on_revenue_forecast()
+    # EPS_for_past_year()
+    # EPS_for_current_year()
+    # EPS_for_past_4Q()
+    # yield_forecast()
+    # max_PER_for_past_year()
+    # min_PER_for_past_year()
+    # current_PER()
+    # export_to_excel()
+
+
     # 取得股價淨值比
     rev = data.get("monthly_revenue:當月營收")
     #rev=rev.loc['2018-M01':, ['2317', '2330', '3008']]
