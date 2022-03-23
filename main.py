@@ -22,6 +22,8 @@ finlab.login('75b0ztI1TfihNQAeO0UyBJVYckRmF9Rr10E3LhE4JlIDY1uh8NLgUJBCXafSgsJf#f
 def fetch_fin_data():
     # 取得股價淨值比
     rev = data.get("monthly_revenue:當月營收")
+    div = data.get('dividend_announcement')
+    # print (div.loc[div["stock_id"]=="2330"])
     #rev=rev.loc['2018-M01':, ['2317', '2330', '3008']]
     # rrsi=data.indicator('RSI', timeperiod=14)
     # print(rrsi)
@@ -51,6 +53,7 @@ def fetch_fin_data():
     engine = create_engine('sqlite:///fin_db', echo=True)
     # 將新建的DataFrame儲存為MySQL中的資料表，不儲存index列
     rev.to_sql('Revenue', engine, if_exists='replace')
+    div.to_sql('Dividend', engine, if_exists='replace')
     print("Write to MySQL successfully!")
 
     # db = MetaData()  # 取得類似於 Cursor 的物件

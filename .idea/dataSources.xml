@@ -8,12 +8,17 @@
       <jdbc-url>jdbc:mysql://db4free.net:3306/stock_finlab</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="fin_db" uuid="c9d803ef-ea36-45a0-829d-cb2787d2052f">
+    <data-source source="LOCAL" name="fin_db" uuid="25056b7a-a903-4c8b-8bb2-b9cc1c6c16b6">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:fin_db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\rick.lin\PycharmProjects\finlab\fin_db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.34.0/sqlite-jdbc-3.34.0.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>
