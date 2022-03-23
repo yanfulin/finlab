@@ -13,12 +13,6 @@ import sqlite3
 import pymysql
 finlab.login('75b0ztI1TfihNQAeO0UyBJVYckRmF9Rr10E3LhE4JlIDY1uh8NLgUJBCXafSgsJf#free')
 
-
-
-
-
-
-
 def fetch_fin_data():
     # get_monthly_revenue()
     # store_monthly_revenue_to_db()
@@ -32,11 +26,31 @@ def fetch_fin_data():
     # min_PER_for_past_year()
     # current_PER()
     # export_to_excel()
+    finlab_data={'monthly_revenue:當月營收':'monthly_revenue:當月營收','fundamental_features:營業利益':'fundamental_features:營業利益'}
+    # finlab_data = {'fundamental_features:營業利益': 'fundamental_features'}
+
+    engine = create_engine('sqlite:///fin_db', echo=True)
+
+    # con = engine.connect()
+    # # 取得股價淨值比
+    #
+    # with engine.connect() as conn:
+    #         conn.execute(text("CREATE TABLE some_table (x int, y int)"))
+    #         conn.execute(text("INSERT INTO some_table (x, y) VALUES (:x, :y)"),[{"x": 1, "y": 1}, {"x": 2, "y": 4}])
+    #         for key in finlab_data:
+    #             fin_data = data.get(key)
+    #             fin_data.to_sql('fundamental_features',engine, if_exists='replace', index=False)
+    #             print("Write to {} successfully!".format(key))
+    #         conn.commit()
 
 
-    # 取得股價淨值比
-    rev = data.get("monthly_revenue:當月營收")
-    #rev=rev.loc['2018-M01':, ['2317', '2330', '3008']]
+    #
+    for key in finlab_data:
+        fin_data = data.get(key)
+        fin_data = fin_data.iloc[:,0:2000]
+        fin_data.to_sql(finlab_data[key],engine, if_exists='replace',index=False)
+        print("Write to {} successfully!".format(key))
+    # #rev=rev.loc['2018-M01':, ['2317', '2330', '3008']]
     # rrsi=data.indicator('RSI', timeperiod=14)
     # print(rrsi)
 
@@ -62,10 +76,9 @@ def fetch_fin_data():
     # engine = create_engine(
     #     f'mysql+pymysql://{username}:{password}@{host}:{port}/{database}'
     # )
-    engine = create_engine('sqlite:///fin_db', echo=True)
+
     # 將新建的DataFrame儲存為MySQL中的資料表，不儲存index列
-    rev.to_sql('Revenue', engine, if_exists='replace')
-    print("Write to MySQL successfully!")
+
 
     # db = MetaData()  # 取得類似於 Cursor 的物件
     #

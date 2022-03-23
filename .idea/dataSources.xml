@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="MySQL - stock_finlab@db4free.net" uuid="590e9fd0-5989-403f-8f71-0a10065ebbaa">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://db4free.net:3306/stock_finlab</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
     <data-source source="LOCAL" name="fin_db" uuid="c9d803ef-ea36-45a0-829d-cb2787d2052f">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:fin_db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="mysql@localhost" uuid="b785bb75-89fb-497b-9a22-1b47195051f5">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/mysql</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="Google BigQuery" uuid="72c1bf7e-e049-4dd5-a56a-2178af9740ed">
+      <driver-ref>bigquery</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.simba.googlebigquery.jdbc42.Driver</jdbc-driver>
+      <jdbc-url>jdbc:bigquery://https://www.googleapis.com/bigquery/v2:</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="ProjectId" value="stock-315808" />
+        <property name="GOOGLE_APPLICATION_CREDENTIALS" value="C:\Users\qw124\Downloads\stock-315808-077a218dc2f9.json" />
+        <property name="OAuthPvtKeyPath" value="C:\Users\qw124\Downloads\stock-315808-f77b9e661bd2.json" />
+      </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
