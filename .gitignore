@@ -3,3 +3,4 @@ fin_db*
 /data/01_raw/*
 /venv/
 /stock_excel_output/
+/data/02_intermediate/

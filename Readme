@@ -1,0 +1,17 @@
+
+
+Workflow:
+
+1. Update the finlab data and write them into fin_db database
+    The code is under src/d01_utils/
+    1.1 get_data_from_finlab(finlab_data_dict)
+    1.2 save_finlab_data_to_sqlite(finlab_data_dict)
+
+2. StockCode: get stock_id and stock list
+3. forecast.py ==>
+    forecast_comparison.drop_sql_table(): drop all revenue forcast from the fin_db database
+    forecast_comparison.make_forecast(stock_id)
+    forecast_10y=forecast_comparison.get_forecast(stock_id, 10)
+        write the EPS forecast into the SQL Table "EPS_forecast_table"
+4. Stock_Price_PER.py
+    export_to_excel2() output the excel to "stock_excel_output/stocks_2022-06-08.xlsx"
